@@ -16,6 +16,8 @@ body {
     text-align: center;
       font-size: 20px;
       color: white;
+    width: 260px;
+    height: 450px;
     border-radius: 10px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -25,8 +27,31 @@ body {
 
   .pokemones-card:hover {
     transform: translate(-15px, -15px);
+    
   }
-  
+  .pokemones-card:hover .tipos-container.fire,
+  .pokemones-card:hover .tipos-container.water,
+  .pokemones-card:hover .tipos-container.electric,
+  .pokemones-card:hover .tipos-container.ice,
+  .pokemones-card:hover .tipos-container.ground,
+  .pokemones-card:hover .tipos-container.flying,
+  .pokemones-card:hover .tipos-container.poison,
+  .pokemones-card:hover .tipos-container.bug,
+  .pokemones-card:hover .tipos-container.dragon,
+  .pokemones-card:hover .tipos-container.psychic,
+  .pokemones-card:hover .tipos-container.fighting,
+  .pokemones-card:hover .tipos-container.steel,
+  .pokemones-card:hover .tipos-container.normal,
+  .pokemones-card:hover .tipos-container.fairy,
+  .pokemones-card:hover .tipos-container.ghost,
+  .pokemones-card:hover .tipos-container.rock,
+  .pokemones-card:hover .tipos-container.grass  {
+  display: flex;
+}
+.pokemon-name {
+  text-align: center;
+  margin-bottom: 10px; 
+}
   
   .sprite-container {
     display: flex;
@@ -37,6 +62,8 @@ body {
   .sprite-container img {
     width: 200px; 
     height: 200px; 
+    margin-top: 50px;
+    
     max-width: 95%;
     height: auto;
   }
@@ -78,6 +105,290 @@ body {
 .pokemones-card.fairy { background-color: #EE99AC; }
 .pokemones-card.ghost { background-color: #473a55; }
  
+.details-card.grass { background-color: #78C850; }
+.details-card.fire { background-color: #F08030; }
+.details-card.water { background-color: #6890F0; }
+.details-card.electric { background-color: #F8D030; }
+.details-card.ice { background-color: #98D8D8; }
+.details-card.ground { background-color: #E0C068; }
+.details-card.rock { background-color: #B8A038; }
+.details-card.flying { background-color: #A890F0; }
+.details-card.poison { background-color: #A040A0; }
+.details-card.bug { background-color: #A8B820; }
+.details-card.dragon { background-color: #7038F8; }
+.details-card.psychic { background-color: #F85888; }
+.details-card.dark { background-color: #705848; }
+.details-card.fighting { background-color: #C03028; }
+.details-card.steel { background-color:  #B8B8D0;}
+.details-card.normal { background-color: #A8A878; }
+.details-card.fairy { background-color: #EE99AC; }
+.details-card.ghost { background-color: #473a55; }
+
+.tipos-container.fire { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #c2584c;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.grass { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #46b544; 
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.water { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #435ab5; 
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.electric { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #e6e91c;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.ice { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #34b3c9; 
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.ground { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #9d8435; 
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.rock { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #91672f; 
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.flying { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #a5ecee;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.poison { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #8331a6;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.bug { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #40863f; 
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.tipos-container.dragon { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #2632ba;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.psychic { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #fd29d6;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.tipos-container.dark { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #232222; 
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.steel { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #c7f5f9; 
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.tipos-container.fighting { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #aa3f33; 
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.normal { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #d4d0bc; 
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.tipos-container.fairy { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #dea0e9;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tipos-container.ghost { 
+  font-size: 14px;
+  width: 250px;
+  height: 30px;
+  background-color: #8957a7;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
   /* al dar click al pokemon */
 .modal {
   position: fixed;
@@ -109,6 +420,7 @@ body {
   max-height: 80%;
   overflow-y: auto;
 }
+
   .navbar {
     
     padding: 10px;
@@ -118,11 +430,13 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    height: 20px;
   }
   
   .navbar ul {
     display: flex;
     width: 550px;
+    
   }
   
   .navbar ul li {

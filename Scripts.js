@@ -54,16 +54,23 @@ const Pokedex = (() => {
       const pokemonCard = document.createElement('div');
       pokemonCard.classList.add('pokemones-card', pokemon.types[0]);
       pokemonCard.innerHTML = `
-          <h2 class='pokemonesNumero'>     ${i + 1}</h2>    
+          <h2 class='pokemonesNumero'>     ${i + 1}</h2>
+              
       `;
-
+      const typesContainer = document.createElement('div');
+      typesContainer.classList.add('tipos-container', pokemon.types[0]);
+      typesContainer.textContent = ` ${pokemon.types.join('   ')}`;
+      pokemonCard.appendChild(typesContainer);
+      
       const spriteContainer = document.createElement('div');
       spriteContainer.classList.add('sprite-container');
       const sprite = document.createElement('img');
       sprite.src = pokemon.sprite;
       spriteContainer.appendChild(sprite);
+      
       pokemonCard.appendChild(spriteContainer);
 
+      
       pokemonCard.addEventListener('click', () => showDetailsModal(pokemon));
       pokedexContainer.appendChild(pokemonCard);
     });
@@ -76,8 +83,13 @@ const Pokedex = (() => {
         modal.classList.add('modal');
     
         const detailsCard = document.createElement('div');
-        detailsCard.classList.add('details-card');
+        detailsCard.classList.add('details-card', pokemon.types[0]);
 
+        const pokemonName = document.createElement('h2');
+        pokemonName.textContent = pokemon.name;
+        pokemonName.classList.add('pokemon-name');
+        detailsCard.appendChild(pokemonName);
+        
         const spriteImg = document.createElement('img');
         spriteImg.src = pokemon.sprite;
         
