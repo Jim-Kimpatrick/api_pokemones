@@ -58,10 +58,17 @@ const Pokedex = (() => {
               
       `;
       const typesContainer = document.createElement('div');
-      typesContainer.classList.add('tipos-container', pokemon.types[0]);
-      typesContainer.textContent = ` ${pokemon.types.join('   ')}`;
-      pokemonCard.appendChild(typesContainer);
       
+      typesContainer.classList.add('tipos-container');
+
+      pokemon.types.forEach(type => {
+        const typeElement = document.createElement('div');
+        typeElement.classList.add(`tipos-${type}`);
+        typeElement.textContent = type;
+        typesContainer.appendChild(typeElement);
+      });
+
+pokemonCard.appendChild(typesContainer);
       const spriteContainer = document.createElement('div');
       spriteContainer.classList.add('sprite-container');
       const sprite = document.createElement('img');

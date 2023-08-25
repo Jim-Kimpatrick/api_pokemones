@@ -18,6 +18,7 @@ body {
       color: white;
     width: 260px;
     height: 450px;
+    border: 2px solid #000;
     border-radius: 10px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -29,25 +30,7 @@ body {
     transform: translate(-15px, -15px);
     
   }
-  .pokemones-card:hover .tipos-container.fire,
-  .pokemones-card:hover .tipos-container.water,
-  .pokemones-card:hover .tipos-container.electric,
-  .pokemones-card:hover .tipos-container.ice,
-  .pokemones-card:hover .tipos-container.ground,
-  .pokemones-card:hover .tipos-container.flying,
-  .pokemones-card:hover .tipos-container.poison,
-  .pokemones-card:hover .tipos-container.bug,
-  .pokemones-card:hover .tipos-container.dragon,
-  .pokemones-card:hover .tipos-container.psychic,
-  .pokemones-card:hover .tipos-container.fighting,
-  .pokemones-card:hover .tipos-container.steel,
-  .pokemones-card:hover .tipos-container.normal,
-  .pokemones-card:hover .tipos-container.fairy,
-  .pokemones-card:hover .tipos-container.ghost,
-  .pokemones-card:hover .tipos-container.rock,
-  .pokemones-card:hover .tipos-container.grass  {
-  display: flex;
-}
+
 .pokemon-name {
   text-align: center;
   margin-bottom: 10px; 
@@ -124,271 +107,52 @@ body {
 .details-card.fairy { background-color: #EE99AC; }
 .details-card.ghost { background-color: #473a55; }
 
-.tipos-container.fire { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #c2584c;
-  border: 2px solid #fff;
-  border-radius: 10px;
+.pokemones-card:hover .tipos-container {
+  display: block;
+}
+
+.tipos-container {
   display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  text-align: center;
+  transition: opacity 1.3s, transform 1.3s;
+}
+
+.tipos-container div {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 2px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.tipos-container.grass { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #46b544; 
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.water { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #435ab5; 
-  border: 2px solid #ffffff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.electric { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #e6e91c;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.ice { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #34b3c9; 
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.ground { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #9d8435; 
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.rock { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #91672f; 
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.flying { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #a5ecee;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.poison { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #8331a6;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.bug { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #40863f; 
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.tipos-container.dragon { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #2632ba;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.psychic { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #fd29d6;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.tipos-container.dark { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #232222; 
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.steel { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #c7f5f9; 
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.tipos-container.fighting { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #aa3f33; 
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.normal { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #d4d0bc; 
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.tipos-container.fairy { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #dea0e9;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tipos-container.ghost { 
-  font-size: 14px;
-  width: 250px;
-  height: 30px;
-  background-color: #8957a7;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  margin: 0 2px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
+.tipos-grass { background-color: #7ee04d; }
+.tipos-fire { background-color: #f03e1f; }
+.tipos-water { background-color: #2969ff; }
+.tipos-electric { background-color: #e8ef25; }
+.tipos-ice { background-color: #49e2e2; }
+.tipos-ground { background-color: #ffd151; }
+.tipos-rock { background-color: #e4c744; }
+.tipos-flying { background-color: #d3c4ff; }
+.tipos-poison { background-color: #bd2bbd; }
+.tipos-bug { background-color: #d0e325; }
+.tipos-dragon { background-color: #7038F8; }
+.tipos-psychic { background-color: #f83e76; }
+.tipos-dark { background-color: #58483e; }
+.tipos-fighting { background-color: #e43a31; }
+.tipos-steel { background-color:  #dfdffb;}
+.tipos-normal { background-color: #cdcd95; }
+.tipos-fairy { background-color: #fb91a8; }
+.tipos-ghost { background-color: #3c2f4a; }
   /* al dar click al pokemon */
 .modal {
   position: fixed;
@@ -407,6 +171,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
   width: 250px; 
   height: 250px; 
 }
