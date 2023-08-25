@@ -57,6 +57,7 @@ const Pokedex = (() => {
           <h2 class='pokemonesNumero'>     ${i + 1}</h2>
               
       `;
+
       const typesContainer = document.createElement('div');
       
       typesContainer.classList.add('tipos-container');
@@ -99,10 +100,9 @@ pokemonCard.appendChild(typesContainer);
         
         const spriteImg = document.createElement('img');
         spriteImg.src = pokemon.sprite;
-        
         spriteImg.alt = `${pokemon.name} Sprite`;
         detailsCard.appendChild(spriteImg);
-        spriteImg.classList.add('pokemones-sprite'); 
+        spriteImg.classList.add('pokemones-sprite','sprite-animacion'); 
     
         const navbar = document.createElement('nav');
         navbar.classList.add('navbar');
