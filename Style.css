@@ -14,24 +14,34 @@ body {
   
   .pokemones-card {
     text-align: center;
-      font-size: 20px;
-      color: white;
+    position: relative;
+    color: #ffffff;
+    border-radius: 10px;
+    border: solid #000 2px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 2px;
+    overflow: hidden;
     width: 260px;
     height: 450px;
-    border: 2px solid #000;
-    border-radius: 10px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-   
-    transition: transform 0.2s ease-in-out;
+    margin-right: 15px;
+    margin-bottom: 30px;
   }
 
   .pokemones-card:hover {
     transform: translate(-15px, -15px);
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #464c55,
+                0 0 25px #464c55,
+                0 0 50px #464c55,
+                0 0 200px #464c55;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
     
   }
-
+  
 .pokemon-name {
+  text-transform: uppercase;
   text-align: center;
   margin-bottom: 10px; 
 }
@@ -69,9 +79,9 @@ body {
   }
 
  /* Colores según tipo */
-.pokemones-card.grass { background-color: #78C850; }
-.pokemones-card.fire { background-color: #F08030; }
-.pokemones-card.water { background-color: #6890F0; }
+.pokemones-card.grass { background-color: #51d832; }
+.pokemones-card.fire { background-color: #ff6a00; }
+.pokemones-card.water { background-color: #3e71e6; }
 .pokemones-card.electric { background-color: #F8D030; }
 .pokemones-card.ice { background-color: #98D8D8; }
 .pokemones-card.ground { background-color: #E0C068; }
@@ -88,9 +98,9 @@ body {
 .pokemones-card.fairy { background-color: #EE99AC; }
 .pokemones-card.ghost { background-color: #473a55; }
  
-.details-card.grass { background-color: #78C850; }
-.details-card.fire { background-color: #F08030; }
-.details-card.water { background-color: #6890F0; }
+.details-card.grass { background-color: #51d832; }
+.details-card.fire { background-color: #ff6a00; }
+.details-card.water { background-color: #3e71e6; }
 .details-card.electric { background-color: #F8D030; }
 .details-card.ice { background-color: #98D8D8; }
 .details-card.ground { background-color: #E0C068; }
@@ -128,7 +138,7 @@ body {
   display: inline-block;
   padding: 2px 8px;
   margin: 2px;
-  border: 1px solid #000;
+  border: 2px solid #000;
   border-radius: 5px;
   font-size: 16px;
   font-weight: bold;
@@ -250,6 +260,7 @@ body {
     width: 100%;
     height: 12px;
     background-color: #ffffff;
+    border: 1px solid #000;
     border-radius: 5px;
     position: relative;
   }
@@ -257,7 +268,8 @@ body {
   .stat-fill {
     height: 100%;
     border-radius: 5px;
-    background-color: #001dc2; 
+   
+    background-color: #0008ff; 
   }
   /* Coinvertir en mayuscula los nombres de los stats  */
   .stat-name {
