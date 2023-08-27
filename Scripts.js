@@ -78,7 +78,7 @@ pokemonCard.appendChild(typesContainer);
       
       pokemonCard.appendChild(spriteContainer);
 
-      
+//AL DAR CLICK EN LA CARD DEL POKEMON MUESTRA UNA CARD CON MAS INFORMACION DEL POKEMON
       pokemonCard.addEventListener('click', () => showDetailsModal(pokemon));
       pokedexContainer.appendChild(pokemonCard);
     });
@@ -102,8 +102,8 @@ pokemonCard.appendChild(typesContainer);
         spriteImg.src = pokemon.sprite;
         spriteImg.alt = `${pokemon.name} Sprite`;
         detailsCard.appendChild(spriteImg);
-        spriteImg.classList.add('pokemones-sprite','sprite-animacion'); 
-    
+        spriteImg.classList.add('pokemones-sprite','sprite-animacion');
+        
         const navbar = document.createElement('nav');
         navbar.classList.add('navbar');
         navbar.innerHTML = `
@@ -117,13 +117,13 @@ pokemonCard.appendChild(typesContainer);
         
         detailsCard.appendChild(navbar);
         
+        
     
         // Apartado de Información
         const basicInfo = document.createElement('div');
         basicInfo.classList.add('informacion-basica');
         basicInfo.id = 'informacion-basica';
         basicInfo.innerHTML = `
-          <h2>${pokemon.name}</h2>
           <p>Altura: ${pokemon.height}</p>
           <p>Peso: ${pokemon.weight}</p>
           <p>Habilidades: ${pokemon.abilities.join(', ')}</p>
@@ -136,9 +136,21 @@ pokemonCard.appendChild(typesContainer);
         statsInfo.id = 'estadisticas-info';
         statsInfo.innerHTML = `
           <h3>Estadísticas:</h3>
-          <ul>${pokemon.stats.map(stat => `<li>${stat}</li>`).join('')}</ul>
+          ${pokemon.stats.map(stat => { //iteracion para el arreglo donde se guaradan las estaditicas 
+            const [statName, statValue] = stat.split(': ');//split para dividir los apartados nombre y valor de los stats guardados
+            const normalizedValue = (parseInt(statValue) / 255) * 100; //coversion para que el % sea proporcional al rango 0 a 255
+            return `
+              <div class="stat">
+                <span class="stat-name">${statName}: ${statValue}</span>
+                <div class="stat-bar">
+                  <div class="stat-fill" style="width: ${normalizedValue}%;"></div>
+                </div>
+              </div>
+            `;//mostrar el nombre y valor de los stats y el valor en una barra
+          }).join('')}
         `;
         detailsCard.appendChild(statsInfo);
+        statsInfo.classList.add('show-section');//para mostrar primero los stats al dar click en el pokemon
     
         // Apartado de habilidades
         const abilitiesInfo = document.createElement('div');
