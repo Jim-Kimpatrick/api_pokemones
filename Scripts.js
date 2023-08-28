@@ -124,10 +124,10 @@ pokemonCard.appendChild(typesContainer);
         basicInfo.classList.add('informacion-basica');
         basicInfo.id = 'informacion-basica';
         basicInfo.innerHTML = `
-          <p>Altura: ${pokemon.height}</p>
-          <p>Peso: ${pokemon.weight}</p>
-          <p>Habilidades: ${pokemon.abilities.join(', ')}</p>
-        `;
+        <p>Altura: ${pokemon.height / 10} m</p>
+        <p>Peso: ${pokemon.weight / 10} kg</p>
+        <p>Habilidades: ${pokemon.abilities.join(', ')}</p>
+        `;// /10 para mostrar bien la altura y poso del pokemon
         detailsCard.appendChild(basicInfo);
     
         // Apartado de Estadísticas 
