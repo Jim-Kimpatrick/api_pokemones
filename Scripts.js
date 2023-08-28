@@ -124,6 +124,7 @@ pokemonCard.appendChild(typesContainer);
         basicInfo.classList.add('informacion-basica');
         basicInfo.id = 'informacion-basica';
         basicInfo.innerHTML = `
+        <h3>Informacion</h3>
         <p>Altura: ${pokemon.height / 10} m</p>
         <p>Peso: ${pokemon.weight / 10} kg</p>
         <p>Habilidades: ${pokemon.abilities.join(', ')}</p>
@@ -135,7 +136,7 @@ pokemonCard.appendChild(typesContainer);
         statsInfo.classList.add('estadisticas-info');
         statsInfo.id = 'estadisticas-info';
         statsInfo.innerHTML = `
-          <h3>Estadísticas:</h3>
+          <h3>Estadísticas</h3>
           ${pokemon.stats.map(stat => { //iteracion para el arreglo donde se guaradan las estaditicas 
             const [statName, statValue] = stat.split(': ');//split para dividir los apartados nombre y valor de los stats guardados
             const normalizedValue = (parseInt(statValue) / 255) * 100; //coversion para que el % sea proporcional al rango 0 a 255
@@ -157,7 +158,7 @@ pokemonCard.appendChild(typesContainer);
         abilitiesInfo.classList.add('habilidades-info');
         abilitiesInfo.id = 'habilidades-info';
         abilitiesInfo.innerHTML = `
-          <h3>Habilidades:</h3>
+          <h3>Habilidades</h3>
           <ul>${pokemon.abilities.map(ability => `<li>${ability}</li>`).join('')}</ul>
         `;
         detailsCard.appendChild(abilitiesInfo);
@@ -167,7 +168,7 @@ pokemonCard.appendChild(typesContainer);
         movesInfo.classList.add('movimientos-info');
         movesInfo.id = 'movimientos-info';
         movesInfo.innerHTML = `
-          <h3>Movimientos:</h3>
+          <h3>Movimientos</h3>
           <ul>${pokemon.moves.map(move => `<li>${move}</li>`).join('')}</ul>
         `;
         detailsCard.appendChild(movesInfo);

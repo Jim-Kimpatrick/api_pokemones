@@ -212,13 +212,12 @@ body {
   .navbar {
     
     padding: 10px;
-    background: #fff;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    height: 20px;
+    height: 10px;
   }
   
   .navbar ul {
@@ -237,7 +236,7 @@ body {
   
   .navbar ul li a {
     text-decoration: none;
-    color: #333;
+    color: #000000;
     font-weight: bold;
   }
   
@@ -247,11 +246,18 @@ body {
   .habilidades-info,
   .movimientos-info {
     display: none;
-    padding: 20px;
-    border-top: 1px solid #ccc;
-    height: 300px;
+    padding-left: 50px;
+    padding-right: 80px;
+    height: 250px;
   }
-  
+
+  .informacion-basica h3,
+  .estadisticas-info h3,
+  .habilidades-info h3,
+  .movimientos-info h3 {
+    text-transform: uppercase;
+    text-align: center;
+}
   .show-section {
     display: block;
   }
