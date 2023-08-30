@@ -1,20 +1,22 @@
+
+//Realiza una peticion GET a la API utilizando el id
 const fetchPokemones = async (id) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-  const data = await response.json();
-  const types = data.types.map((type) => type.type.name);
-  const sprite = data.sprites.other.dream_world.front_default;
-  const species = data.species.name;
-  const height = data.height;
-  const weight = data.weight;
-  const abilities = data.abilities.map((ability) => ability.ability.name);
-  const stats = data.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`);
-  const moves = data.moves.slice(0, 5).map((move) => move.move.name);
-  return [data.name, id, types, sprite, species, height, weight, abilities, stats, moves];
+  const data = await response.json();//convierte la respuesta de la API en formato JSON
+  const types = data.types.map((type) => type.type.name);//extrae y mapea los tipos de pokemon
+  const sprite = data.sprites.other.dream_world.front_default;//guarda el URL del sprite del pokemon
+  const species = data.species.name;//Guarda el nombre de la especie del pokemon
+  const height = data.height;//guarda la altura
+  const weight = data.weight;//guarda el peso
+  const abilities = data.abilities.map((ability) => ability.ability.name);//Obtine y mapea las habilidades
+  const stats = data.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`);//obtiene y mapea las estadisticas
+  const moves = data.moves.slice(0, 6).map((move) => move.move.name);//obtien y mapea los primeros 6 movimientos
+  return [data.name, id, types, sprite, species, height, weight, abilities, stats, moves];//Retorna los datos guardaos del pokemon
 };
 
-
+//Creacion del objeto pokemon
 const Pokemon = (name, id, types, sprite, species, height, weight, abilities, stats, moves) => {
-  return {
+  return {//retorna el objeto pokemon con sus datos
     name,
     id,
     types,
@@ -38,11 +40,12 @@ const ocultarApartados = () => {
 
 // 
 const Pokedex = (() => {
-  const PokemonesList = [];
+  const PokemonesList = [];//array vacio para almacenar los pokemon
 
+  //funcion para crear los objetos pokemon
   const crearPokemones = (name, id, types, sprite, species, height, weight, abilities, stats, moves) => {
-    const pokemon = Pokemon(name, id, types, sprite, species, height, weight, abilities, stats, moves);
-    PokemonesList.push(pokemon);
+    const pokemon = Pokemon(name, id, types, sprite, species, height, weight, abilities, stats, moves);//se llama a Pokemon para crear el pokemon
+    PokemonesList.push(pokemon);//el pokemon creado se guarda en el array vacio
   };
 
   const dibujarPokedex = () => {
@@ -195,14 +198,28 @@ pokemonCard.appendChild(typesContainer);
             targetSection.classList.add('show-section');
           });
         });
+
+        
+        const closeModal = () => {
+          document.body.removeChild(modal);
+        };
+        //quitar la card al dar click afuera 
+        modal.addEventListener('click', (event) => {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
       };
     
+      //funcion anonima con el patron modulo
       const AllPokemon = async () => {
-        for (let i = 1; i <= 150; i++) {
-          const pokemonesData = await fetchPokemones(i);
+        for (let i = 1; i <= 150; i++) {//bucle que se ejecutara para los 150 pokemon
+          const pokemonesData = await fetchPokemones(i);// llamado a la API para obtener los datos del pokemon y guardarlos en la constante
           crearPokemones(...pokemonesData);
+          //llama la funcion crearPokemones con los datos de los pokemon para crear el objeto Pokemon y guardarlos en la lista
         }
-        dibujarPokedex();
+        dibujarPokedex();//llamado a la funcion para mostrar la pokede
       };
     
       return {
