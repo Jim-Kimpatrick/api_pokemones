@@ -49,66 +49,67 @@ const Pokedex = (() => {
   };
 
   const dibujarPokedex = () => {
-    const pokedexContainer = document.createElement('div');
-    pokedexContainer.classList.add('pokedex');
+    const pokedexContainer = document.createElement('div');//se crea un div
+    pokedexContainer.classList.add('pokedex');//se le agrega la clase pokedex para aplicarle css
 
     //Bucle para los pokimones 
-    PokemonesList.forEach((pokemon, i) => {
-      const pokemonCard = document.createElement('div');
-      pokemonCard.classList.add('pokemones-card', pokemon.types[0]);
+    PokemonesList.forEach((pokemon, i) => {//bucle para lista donde se guardaron los pokemones
+      const pokemonCard = document.createElement('div');//crea un div para las card
+      pokemonCard.classList.add('pokemones-card', pokemon.types[0]);//agrega las 2 clases css a la card del pokemon la segunda es el tipo del pokemon para aplicar ccs especificos
       pokemonCard.innerHTML = `
           <h2 class='pokemonesNumero'>     ${i + 1}</h2>
               
-      `;
+      `;//añade HTML a la card del pokemon junto al iterador para representar el numero del pokemon
 
-      const typesContainer = document.createElement('div');
+      const typesContainer = document.createElement('div');//crea un div para los tipos del pokemon
       
-      typesContainer.classList.add('tipos-container');
+      typesContainer.classList.add('tipos-container');//se le agrega la clase css
 
-      pokemon.types.forEach(type => {
+      pokemon.types.forEach(type => {//iteracion segun cuantos tipos tiene el pokemon
         const typeElement = document.createElement('div');
-        typeElement.classList.add(`tipos-${type}`);
-        typeElement.textContent = type;
+        typeElement.classList.add(`tipos-${type}`);//se le añade la clase de css en la cual es segun el tipo
+        typeElement.textContent = type;// se le agrega el tipo del pokemon
         typesContainer.appendChild(typeElement);
       });
 
-pokemonCard.appendChild(typesContainer);
-      const spriteContainer = document.createElement('div');
-      spriteContainer.classList.add('sprite-container');
-      const sprite = document.createElement('img');
-      sprite.src = pokemon.sprite;
+      pokemonCard.appendChild(typesContainer);//se agregan los tipos a la card del pokemon
+
+      const spriteContainer = document.createElement('div');//se crea un div para el sprite del pokemon
+      spriteContainer.classList.add('sprite-container');//la clase css del div
+      const sprite = document.createElement('img');//se agrega un elemento img
+      sprite.src = pokemon.sprite;//se añade la fuente(URL) de donde se obtendra el sprite del pokemon
       spriteContainer.appendChild(sprite);
       
-      pokemonCard.appendChild(spriteContainer);
+      pokemonCard.appendChild(spriteContainer);//Se agrega el sprite a la card
 
 //AL DAR CLICK EN LA CARD DEL POKEMON MUESTRA UNA CARD CON MAS INFORMACION DEL POKEMON
       pokemonCard.addEventListener('click', () => showDetailsModal(pokemon));
-      pokedexContainer.appendChild(pokemonCard);
+      pokedexContainer.appendChild(pokemonCard);//se agrega la card del pokemon al div pokedex
     });
 
-    document.body.appendChild(pokedexContainer);
+    document.body.appendChild(pokedexContainer);//se agrega el contenedor pokedex al HTML
   };
 
     const showDetailsModal = (pokemon) => {
-        const modal = document.createElement('div');
-        modal.classList.add('modal');
+        const modal = document.createElement('div');//se crea un div
+        modal.classList.add('modal');//se le agrega la clase al div
     
-        const detailsCard = document.createElement('div');
-        detailsCard.classList.add('details-card', pokemon.types[0]);
+        const detailsCard = document.createElement('div');//creacion de un div para la card de detalles del pokemon
+        detailsCard.classList.add('details-card', pokemon.types[0]);//se le agregan 2 clases la segunda para dar CSS especificos segun el tipo del pokemon
 
-        const pokemonName = document.createElement('h2');
-        pokemonName.textContent = pokemon.name;
-        pokemonName.classList.add('pokemon-name');
-        detailsCard.appendChild(pokemonName);
+        const pokemonName = document.createElement('h2');//se crea un h2
+        pokemonName.textContent = pokemon.name;//se establece el nombre del pokemon como el contenido del h2
+        pokemonName.classList.add('pokemon-name');//se le agrega la clase al h2
+        detailsCard.appendChild(pokemonName);//agrega el h2 a la card de detalles del pokemon
         
-        const spriteImg = document.createElement('img');
+        const spriteImg = document.createElement('img');//se crea un img para el sprite del pokemon
         spriteImg.src = pokemon.sprite;
         spriteImg.alt = `${pokemon.name} Sprite`;
         detailsCard.appendChild(spriteImg);
-        spriteImg.classList.add('pokemones-sprite','sprite-animacion');
+        spriteImg.classList.add('pokemones-sprite','sprite-animacion');//se le agregan las clases al sprite del pokemon
         
-        const navbar = document.createElement('nav');
-        navbar.classList.add('navbar');
+        const navbar = document.createElement('nav');//crea un navbar para las secciones
+        navbar.classList.add('navbar');//agregar la classe navbar 
         navbar.innerHTML = `
           <ul>
             <li><a href="#informacion-basica">Información</a></li>
@@ -118,7 +119,7 @@ pokemonCard.appendChild(typesContainer);
           </ul>
         `;
         
-        detailsCard.appendChild(navbar);
+        detailsCard.appendChild(navbar);//agrega la navbar a la card
         
         
     
@@ -183,28 +184,37 @@ pokemonCard.appendChild(typesContainer);
         });
     
         detailsCard.appendChild(closeButton);
-        modal.appendChild(detailsCard);
+        modal.appendChild(detailsCard);//agrega la card con los detalles del pokemon al modal
     
-        document.body.appendChild(modal);
+        document.body.appendChild(modal);//agrega la card al html
     
         // eventos de click para los enlaces de la barra de navegación
-        const links = navbar.querySelectorAll('a');
+        const links = navbar.querySelectorAll('a');//obtiene los enlaces de la navbar
         links.forEach(link => {
+          //para cada apartado se agrega un evento al dar click
           link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = detailsCard.querySelector(targetId);
-            ocultarApartados();
-            targetSection.classList.add('show-section');
+            event.preventDefault();//evita que se cambie el URL
+            const targetId = link.getAttribute('href');//obtine el ID a la seccion a la que se dio click
+            const targetSection = detailsCard.querySelector(targetId);//busca el elemento al que se le dio click en la card
+            ocultarApartados();//oculta las otras secciones de la card
+
+            
+            links.forEach(link => {
+              link.classList.remove('selected');//remueve la clase css de los apartados de la navbar
+            });
+
+            link.classList.add('selected');//agregar los css al dar click 
+            targetSection.classList.add('show-section');//muestra la seccion correspondiente a la que dio click
           });
         });
 
         
         const closeModal = () => {
-          document.body.removeChild(modal);
+          document.body.removeChild(modal);//remueve la card con los detalles del pokemon del html
         };
         //quitar la card al dar click afuera 
         modal.addEventListener('click', (event) => {
+          //si se deio click afuera cierra la card con los detalles del pokemon
           if (event.target === modal) {
             closeModal();
           }

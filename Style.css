@@ -210,8 +210,7 @@ body {
 }
 
   .navbar {
-    
-    padding: 10px;
+    padding: 5px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -239,16 +238,39 @@ body {
     color: #000000;
     font-weight: bold;
   }
+  .navbar a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10 10px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    transition: background-color 0.5s;
+  }
   
+  .navbar a:hover {
+    background-color: #f0f0f0;
+  }
+
+  .navbar a.selected {
+    background-color: #f0f0f0;
+  }
   /* Estilos para los diferentes apartados */
   .informacion-basica,
   .estadisticas-info,
   .habilidades-info,
   .movimientos-info {
     display: none;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: none;
     padding-left: 50px;
     padding-right: 80px;
-    height: 250px;
+    height: 270px;
   }
 
   .informacion-basica h3,
@@ -257,6 +279,8 @@ body {
   .movimientos-info h3 {
     text-transform: uppercase;
     text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
 }
   .show-section {
     display: block;
@@ -269,6 +293,12 @@ body {
     border: 1px solid #000;
     border-radius: 5px;
     position: relative;
+    box-shadow: 0 0 4px #24416c,
+                0 0 4px #24416c,
+                0 0 4px #24416c,
+                0 0 4px #24416c;
+    
+    
   }
   /* Color con el que sellenara la barra  */
   .stat-fill {
@@ -276,6 +306,7 @@ body {
     border-radius: 5px;
    
     background-color: #0008ff; 
+    
   }
   /* Coinvertir en mayuscula los nombres de los stats  */
   .stat-name {
