@@ -356,15 +356,15 @@ body {
   /* Color con el que sellenara la barra  */
   .stat-fill {
     height: 100%;
-    border-radius: 5px;
-   
+    border-radius: 2px;
     background-color: #0008ff; 
-    
   }
   /* Coinvertir en mayuscula los nombres de los stats  */
   .stat-name {
     text-transform: uppercase;
     
   }
-  
+  button{
+    margin-top: 5px;
+  }
   
