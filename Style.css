@@ -272,7 +272,7 @@ body {
     display: none;
     padding-left: 50px;
     padding-right: 80px;
-    height: 270px;
+    height: 290px;
   }
 
   .informacion-basica h3,
@@ -301,6 +301,7 @@ body {
   display: inline-block;
   padding: 5px 10px;
   background-color: #0008ff;
+  border: 2px solid #000;
   border-radius: 5px;
   font-size: 14px;
 }
@@ -324,13 +325,18 @@ body {
 .mov {
   background-color: #0008ff;
   padding: 5px 10px;
-  border-radius: 7px;
+  border-radius: 10px;
   width: 48%; 
   text-align: center;
   font-size: 14px;
 }
   .show-section {
     display: block;
+  }
+
+  .stat {    
+    margin-bottom: 5px;
+    margin-top: 5px;
   }
 
   .stat-bar {
@@ -344,7 +350,7 @@ body {
                 0 0 4px #24416c,
                 0 0 4px #24416c,
                 0 0 4px #24416c;
-    
+    margin-left: 25px;
     
   }
   /* Color con el que sellenara la barra  */
@@ -358,6 +364,7 @@ body {
   /* Coinvertir en mayuscula los nombres de los stats  */
   .stat-name {
     text-transform: uppercase;
+    
   }
   
   
