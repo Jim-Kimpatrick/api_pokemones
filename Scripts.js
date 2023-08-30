@@ -10,7 +10,7 @@ const fetchPokemones = async (id) => {
   const weight = data.weight;//guarda el peso
   const abilities = data.abilities.map((ability) => ability.ability.name);//Obtine y mapea las habilidades
   const stats = data.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`);//obtiene y mapea las estadisticas
-  const moves = data.moves.slice(0, 6).map((move) => move.move.name);//obtien y mapea los primeros 6 movimientos
+  const moves = data.moves.slice(0, 8).map((move) => move.move.name);//obtiene y mapea los primeros 8 movimientos
   return [data.name, id, types, sprite, species, height, weight, abilities, stats, moves];//Retorna los datos guardaos del pokemon
 };
 
@@ -162,9 +162,11 @@ const Pokedex = (() => {
         abilitiesInfo.classList.add('habilidades-info');
         abilitiesInfo.id = 'habilidades-info';
         abilitiesInfo.innerHTML = `
-          <h3>Habilidades</h3>
-          <ul>${pokemon.abilities.map(ability => `<li>${ability}</li>`).join('')}</ul>
-        `;
+        <h3>Habilidades</h3>
+        <div class="habilidades-list">
+          ${pokemon.abilities.map(ability => `<span class="habilidades">${ability}</span>`).join('')}
+        </div>
+      `;
         detailsCard.appendChild(abilitiesInfo);
     
         // Apartado de Movimientos
@@ -173,7 +175,19 @@ const Pokedex = (() => {
         movesInfo.id = 'movimientos-info';
         movesInfo.innerHTML = `
           <h3>Movimientos</h3>
-          <ul>${pokemon.moves.map(move => `<li>${move}</li>`).join('')}</ul>
+          <div class="mov-list">
+            ${pokemon.moves.map((move, index) => {//para mostrar los movimientos de 2 en 2
+              if (index % 2 === 0) {
+                return `
+                  <div class="mov-row">
+                    <span class="mov">${move}</span>
+                    ${index + 1 < pokemon.moves.length ? `<span class="mov">${pokemon.moves[index + 1]}</span>` : ''}
+                  </div>
+                `;
+              }
+              return '';
+            }).join('')}
+          </div>
         `;
         detailsCard.appendChild(movesInfo);
     
