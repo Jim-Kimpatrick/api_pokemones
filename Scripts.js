@@ -113,7 +113,7 @@ const Pokedex = (() => {
         navbar.innerHTML = `
           <ul>
             <li><a href="#informacion-basica">Información</a></li>
-            <li><a href="#estadisticas-info">Estadísticas</a></li>
+            <li><a class="selected" href="#estadisticas-info">Estadísticas</a></li>
             <li><a href="#habilidades-info">Habilidades</a></li>
             <li><a href="#movimientos-info">Movimientos</a></li>
           </ul>

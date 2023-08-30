@@ -255,6 +255,8 @@ body {
 
   .navbar a.selected {
     background-color: #f0f0f0;
+    transition: padding-bottom 0.5s;
+    padding-bottom: 60px;
   }
   /* Estilos para los diferentes apartados */
   .informacion-basica,
